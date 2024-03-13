@@ -1,8 +1,19 @@
 import { BrowserRouter } from "react-router-dom";
-import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, StarsCanvas} from './components';
+import {
+  About,
+  Contact,
+  Experience,
+  Feedbacks,
+  Hero,
+  Navbar,
+  Tech,
+  Works,
+  StarsCanvas,
+} from "./components";
+
+// https://www.youtube.com/watch?v=0fYi8SGA20k
 
 function App() {
-
   return (
     <BrowserRouter>
       <div className="relative z-0 bg-primary">
@@ -21,7 +32,7 @@ function App() {
         </div>
       </div>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;
