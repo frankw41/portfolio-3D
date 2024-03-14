@@ -1,7 +1,7 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { ComputersCanvas } from "./canvas";
+import { istj } from "../assets";
 
 const Hero = () => {
   return (
@@ -18,13 +18,35 @@ const Hero = () => {
             Hi, I&#39;m <span className="text-[#915eff]">Frank</span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100 w-4/5`}>
-            Cupidatat sit minim Lorem qui. Labore o fficia et tempor aliquip ad
-            aute.
+            I am enthusiastic of programming, especially web software
+            development. I am excited and eager to dive into industry!
+            <br />
+            <br />
+            <div className="font-bold flex gap-2">
+              MBTI:
+              <div
+                className="flex cursor-pointer z-10 text-[#915eff] gap-2"
+                onClick={() =>
+                  window.open(
+                    "https://www.16personalities.com/istj-personality",
+                    "_blank"
+                  )
+                }
+              >
+                ISTJ
+                <img
+                  src={istj}
+                  alt="istj_icon"
+                  className="w-10 h-10 object-contain"
+                />
+              </div>
+            </div>
           </p>
         </div>
       </div>
       <ComputersCanvas />
 
+      {/* Scroll Down hint */}
       <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
         <a href="#about">
           <div className="w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2">

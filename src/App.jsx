@@ -7,9 +7,10 @@ import {
   Hero,
   Navbar,
   Tech,
-  Works,
+  Projects,
   StarsCanvas,
 } from "./components";
+import Education from "./components/Education";
 
 // https://www.youtube.com/watch?v=0fYi8SGA20k
 
@@ -22,9 +23,10 @@ function App() {
           <Hero />
         </div>
         <About />
+        <Education />
         <Experience />
         <Tech />
-        <Works />
+        <Projects />
         <Feedbacks />
         <div className="relative z-0">
           <Contact />

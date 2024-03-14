@@ -9,7 +9,6 @@ import close from "./close.svg";
 
 import css from "./tech/css.png";
 import docker from "./tech/docker.png";
-import figma from "./tech/figma.png";
 import git from "./tech/git.png";
 import html from "./tech/html.png";
 import javascript from "./tech/javascript.png";
@@ -20,16 +19,17 @@ import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
+import mysql from "./tech/mysql.png";
+import python from "./tech/python.png";
 
-import meta from "./company/meta.png";
-import shopify from "./company/shopify.png";
-import starbucks from "./company/starbucks.png";
-import tesla from "./company/tesla.png";
+import queuesolutions from "./company/queuesolutions.png";
 
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
 import logo_bg from "./logo-bg.png";
+import istj from "./istj.png";
+import unimelb from "./unimelb.png";
 
 export {
   logo,
@@ -42,7 +42,6 @@ export {
   close,
   css,
   docker,
-  figma,
   git,
   html,
   javascript,
@@ -53,12 +52,13 @@ export {
   tailwind,
   typescript,
   threejs,
-  meta,
-  shopify,
-  starbucks,
-  tesla,
+  mysql,
+  python,
+  queuesolutions,
   carrent,
   jobit,
   tripguide,
   logo_bg,
+  istj,
+  unimelb,
 };

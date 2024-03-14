@@ -6,18 +6,45 @@ import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 
+const WARNING = {
+  NAME: "name",
+  EMAIL: "email",
+  MESSAGE: "message",
+};
+
 const Contact = () => {
   const formRef = useRef();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [loading, setLoading] = useState(false);
+  const [warning, setWarning] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
+    if (warning === name) {
+      setWarning("");
+    }
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
+    if (!form.name) {
+      setWarning(WARNING.NAME);
+      setLoading(false);
+      return;
+    }
+    if (!form.email) {
+      setWarning(WARNING.EMAIL);
+      setLoading(false);
+      return;
+    }
+    if (!form.message) {
+      setWarning(WARNING.MESSAGE);
+      setLoading(false);
+      return;
+    }
+    setWarning("");
     emailjs
       .send(
         "service_p3p75sn",
@@ -62,10 +89,13 @@ const Contact = () => {
       >
         <p className={styles.sectionSubText}>Get in touch</p>
         <h3 className={styles.sectionHeadText}>Contact</h3>
+        <h2 className={`text-red-500 mt-6 ${warning === "" ? "hidden" : ""}`}>
+          {`Please enter your ${warning}!`}
+        </h2>
         <form
           ref={formRef}
           onSubmit={handleSubmit}
-          className="mt-12 flex flex-col gap-8"
+          className="mt-6 flex flex-col gap-8"
         >
           <label className="flex flex-col">
             <span className="text-white font-medium mb-4">Your Name</span>
@@ -101,8 +131,9 @@ const Contact = () => {
             />
           </label>
           <button
+            disabled={loading}
             type="submit"
-            className="bg-tertiary py-3 px-8 outline-none w-fit text-white font-bold shadow-md shadow-primary rounded-xl"
+            className="bg-tertiary py-3 px-8 outline-none w-fit text-white font-bold shadow-md shadow-primary rounded-xl hover:bg-white hover:bg-opacity-20"
           >
             {loading ? "Sending..." : "Send"}
           </button>
@@ -111,7 +142,7 @@ const Contact = () => {
 
       <motion.div
         variants={slideIn("right", "tween", 0.2, 1)}
-        className="xl:flex-1 xl:h-auto md:h-[55px] h-[350px] "
+        className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]"
       >
         <EarthCanvas />
       </motion.div>

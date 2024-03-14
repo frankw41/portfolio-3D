@@ -38,9 +38,14 @@ const About = () => {
         variants={fadeIn("", "", 0.1, 1)}
         className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
       >
-        Minim ipsum aliqua ex sunt velit. Magna et sit Lorem enim aliquip cillum
-        aliqua in et Lorem reprehenderit enim eiusmod irure. Consequat enim in
-        tempor commodo ea sunt minim ut non dolor cupidatat labore pariatur.
+        I am fully committed into work by completing tasks on time with
+        high-standard qualities. When faced with challenges, I am determined to
+        find solutions, often brining innovative ideas to the table.
+        Self-learning is another strength allowing me to adapt and grow in
+        different circumstances. Although I am introvert enjoying the comforts
+        of home sometimes, I love to meet with great people to share experiences
+        and learning from others, as well as sharing funny stories(which I have
+        a lot).
       </motion.p>
       <div className="mt-20 flex flex-wrap gap-10">
         {services.map((service, index) => (

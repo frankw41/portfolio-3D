@@ -58,7 +58,7 @@ const ProjectCard = ({
   );
 };
 
-const Works = () => {
+const Projects = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
@@ -90,6 +90,6 @@ const Works = () => {
   );
 };
 
-const WorksPage = SectionWrapper(Works, "work");
+const ProjectsPage = SectionWrapper(Projects, "project");
 
-export default WorksPage;
+export default ProjectsPage;
