@@ -1,33 +1,31 @@
 /* eslint-disable react/prop-types */
-import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { github } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
+import ImageGallery from "./ImageGallery";
 
 const ProjectCard = ({
   index,
   name,
   description,
   tags,
-  image,
+  images,
   source_code_link,
 }) => {
   return (
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
-      <Tilt
-        options={{ max: 45, scale: 1, speed: 450 }}
-        className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
-      >
-        <div className="relative w-full h-[230px] ">
-          <img
-            src={image}
-            alt={name}
-            className="w-full h-full object-cover rounded-2xl"
-          />
-          <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
+      <div className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full">
+        <div className="relative w-full h-[230px]">
+          <ImageGallery images={images} />
+
+          <div
+            className={`${
+              source_code_link ? "" : "hidden"
+            } absolute inset-0 flex justify-end m-3 card-img_hover `}
+          >
             <div
               onClick={() => window.open(source_code_link, "_blank")}
               className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
@@ -35,12 +33,11 @@ const ProjectCard = ({
               <img
                 src={github}
                 alt="github"
-                className="w-1/2 h-1/2 object-contain"
+                className="w-1/2 h-1/2 object-contain z-[2] black-gradient rounded-full"
               />
             </div>
           </div>
         </div>
-
         <div className="mt-5">
           <h3 className="text-white font-bold text-[24px]">{name}</h3>
           <p className="mt-2 text-secondary text-[14px]">{description}</p>
@@ -53,7 +50,7 @@ const ProjectCard = ({
             </p>
           ))}
         </div>
-      </Tilt>
+      </div>
     </motion.div>
   );
 };
@@ -70,14 +67,12 @@ const Projects = () => {
           variants={fadeIn("", "", 0.1, 1)}
           className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
         >
-          In laborum cillum nisi ea ut enim ex dolor culpa aliqua sint occaecat.
-          Ullamco proident voluptate ipsum est voluptate Lorem. Deserunt amet
-          veniam mollit quis exercitation fugiat non. Ipsum ea duis ut quis
-          reprehenderit adipisicing sit qui cillum enim. Aute officia Lorem
-          laboris commodo occaecat mollit nostrud. Consectetur occaecat sint eu
-          duis enim commodo laboris commodo eu non proident proident anim
-          cupidatat. Aliquip esse esse voluptate elit cupidatat qui tempor
-          veniam minim consequat tempor occaecat.
+          The projects displayed here highlight my academic and internship
+          experiences, showcasing my versatility across different technologies
+          and efficient project management skills. While some projects feature
+          GitHub links for public viewing, others remain private due to their
+          sensitive nature. Nonetheless, each project offers a glimpse into my
+          ability to tackle diverse challenges and deliver effective solutions.
         </motion.p>
       </div>
 

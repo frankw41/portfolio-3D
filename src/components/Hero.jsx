@@ -22,9 +22,9 @@ const Hero = () => {
             development. I am excited and eager to dive into industry!
             <br />
             <br />
-            <div className="font-bold flex gap-2">
+            <span className="font-bold flex gap-2">
               MBTI:
-              <div
+              <span
                 className="flex cursor-pointer z-10 text-[#915eff] gap-2"
                 onClick={() =>
                   window.open(
@@ -39,8 +39,8 @@ const Hero = () => {
                   alt="istj_icon"
                   className="w-10 h-10 object-contain"
                 />
-              </div>
-            </div>
+              </span>
+            </span>
           </p>
         </div>
       </div>
@@ -50,7 +50,7 @@ const Hero = () => {
       <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
         <a href="#about">
           <div className="w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2">
-            <motion.dev
+            <motion.div
               animate={{
                 y: [0, 24, 0],
               }}

@@ -24,9 +24,15 @@ import python from "./tech/python.png";
 
 import queuesolutions from "./company/queuesolutions.png";
 
-import carrent from "./carrent.png";
-import jobit from "./jobit.png";
-import tripguide from "./tripguide.png";
+import whiteboard from "./projects_img/whiteboard.png";
+import w2e_welcome from "./projects_img/what2eat/w2e_welcome.png";
+import w2e_chat from "./projects_img/what2eat/w2e_chat.png";
+import w2e_detail from "./projects_img/what2eat/w2e_detail.png";
+import w2e_list from "./projects_img/what2eat/w2e_list.png";
+import w2e_login from "./projects_img/what2eat/w2e_login.png";
+import w2e_map from "./projects_img/what2eat/w2e_map.png";
+import w2e_message from "./projects_img/what2eat/w2e_message.png";
+
 import logo_bg from "./logo-bg.png";
 import istj from "./istj.png";
 import unimelb from "./unimelb.png";
@@ -55,9 +61,14 @@ export {
   mysql,
   python,
   queuesolutions,
-  carrent,
-  jobit,
-  tripguide,
+  whiteboard,
+  w2e_welcome,
+  w2e_chat,
+  w2e_detail,
+  w2e_list,
+  w2e_login,
+  w2e_map,
+  w2e_message,
   logo_bg,
   istj,
   unimelb,

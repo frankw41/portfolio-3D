@@ -8,17 +8,20 @@ import {
   html,
   css,
   reactjs,
-  redux,
   tailwind,
   nodejs,
   mongodb,
   mysql,
   python,
-  git,
   docker,
-  carrent,
-  jobit,
-  tripguide,
+  whiteboard,
+  w2e_welcome,
+  w2e_chat,
+  w2e_detail,
+  w2e_list,
+  w2e_login,
+  w2e_map,
+  w2e_message,
   threejs,
   unimelb,
   queuesolutions,
@@ -205,46 +208,36 @@ const testimonials = [
 
 const projects = [
   {
-    name: "Car Rent",
+    name: "What2Eat",
     description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+      "An iOS application for sharing food posts with social app \
+      features, implemented main page functionalities, allowing \
+      users to switch between list view and map view for \
+      location tracking.",
     tags: [
       {
-        name: "react",
+        name: "SwiftUI",
         color: "blue-text-gradient",
       },
       {
-        name: "mongodb",
+        name: "Frontend",
         color: "green-text-gradient",
       },
       {
-        name: "tailwind",
+        name: "Firebase",
         color: "pink-text-gradient",
       },
     ],
-    image: carrent,
-    source_code_link: "https://github.com/",
-  },
-  {
-    name: "Job IT",
-    description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "restapi",
-        color: "green-text-gradient",
-      },
-      {
-        name: "scss",
-        color: "pink-text-gradient",
-      },
+    images: [
+      w2e_welcome,
+      w2e_chat,
+      w2e_detail,
+      w2e_list,
+      w2e_login,
+      w2e_map,
+      w2e_message,
     ],
-    image: jobit,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/frankwan41/COMP90018_Assignment2",
   },
   {
     name: "Trip Guide",
@@ -264,8 +257,29 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: tripguide,
-    source_code_link: "https://github.com/",
+    images: [],
+    source_code_link: "https://github.com/frankwan41/COMP90018_Assignment2",
+  },
+  {
+    name: "White Board",
+    description:
+      "A collaborative drawing tool enabling multiple users to draw simultaneously, including real-time chat.",
+    tags: [
+      {
+        name: "Java",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Concurrency",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Java Swing",
+        color: "pink-text-gradient",
+      },
+    ],
+    images: [whiteboard],
+    source_code_link: "",
   },
 ];
 
