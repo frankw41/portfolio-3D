@@ -22,6 +22,11 @@ import {
   w2e_login,
   w2e_map,
   w2e_message,
+  mm_main,
+  qua_add,
+  qua_dashboard,
+  qua_detail,
+  qua_login,
   threejs,
   unimelb,
   queuesolutions,
@@ -230,35 +235,59 @@ const projects = [
     ],
     images: [
       w2e_welcome,
-      w2e_chat,
-      w2e_detail,
-      w2e_list,
       w2e_login,
+      w2e_list,
       w2e_map,
+      w2e_detail,
+      w2e_chat,
       w2e_message,
     ],
     source_code_link: "https://github.com/frankwan41/COMP90018_Assignment2",
   },
   {
-    name: "Trip Guide",
+    name: "Motivational Modelling",
     description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+      "Motivational Model Editor is used to help user create emotional goal models, through writing different type \
+      of goals and rendering through it's own graphing function.",
     tags: [
       {
-        name: "nextjs",
+        name: "JavaScript",
         color: "blue-text-gradient",
       },
       {
-        name: "supabase",
+        name: "TypeScript",
         color: "green-text-gradient",
       },
       {
-        name: "css",
+        name: "React",
         color: "pink-text-gradient",
       },
     ],
-    images: [],
-    source_code_link: "https://github.com/frankwan41/COMP90018_Assignment2",
+    images: [mm_main],
+    source_code_link: "https://momo-swen90009.eresearch.unimelb.edu.au/",
+  },
+  {
+    name: "Quartefacts",
+    description:
+      "The application focuses on storing family artifacts with \
+      various types of images, including automatic conversion of \
+      HEIC to PNG.",
+    tags: [
+      {
+        name: "React",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Sass",
+        color: "green-text-gradient",
+      },
+      {
+        name: "NodeJS",
+        color: "pink-text-gradient",
+      },
+    ],
+    images: [qua_login, qua_dashboard, qua_add, qua_detail],
+    source_code_link: "",
   },
   {
     name: "White Board",

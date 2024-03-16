@@ -1,32 +1,31 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const ImageGallery = ({ images, autoplayInterval = 3000 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
-  const [direction, setDirection] = useState("next");
 
   useEffect(() => {
     let intervalId;
 
     if (images.length > 1 && !isHovered) {
-      intervalId = setInterval(goToNext, autoplayInterval);
+      intervalId = setInterval(goNextImage, autoplayInterval);
     }
 
     return () => clearInterval(intervalId);
   }, [currentIndex, isHovered]);
 
-  const goToPrevious = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
-    setDirection("prev");
+  const goNextImage = () => {
+    setCurrentIndex((prevIndex) => {
+      if (prevIndex === images.length - 1) return 0;
+      return prevIndex + 1;
+    });
   };
 
-  const goToNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
-    );
-    setDirection("next");
+  const goPrevImage = () => {
+    setCurrentIndex((prevIndex) => {
+      if (prevIndex === 0) return images.length - 1;
+      return prevIndex - 1;
+    });
   };
 
   const handleMouseEnter = () => {
@@ -43,43 +42,52 @@ const ImageGallery = ({ images, autoplayInterval = 3000 }) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="relative w-full h-full overflow-hidden rounded-2xl">
+      <div className="w-full h-full flex overflow-hidden">
         {images.map((image, index) => (
           <img
             key={index}
             src={image}
-            alt={`Image ${index + 1}`}
-            className={`absolute inset-0 w-full h-full object-cover transition-transform duration-500 ${
-              index === currentIndex
-                ? "translate-x-0 opacity-100"
-                : direction === "next"
-                ? index < currentIndex
-                  ? "translate-x-full"
-                  : "-translate-x-full"
-                : (index > currentIndex
-                    ? "-translate-x-full"
-                    : "translate-x-full") + " opacity-0"
-            }`}
+            className={`object-contain w-full h-full block flex-shrink-0
+              flex-grow-0 duration-300 ease-in-out`}
+            style={{
+              translate: `${-100 * currentIndex}% `,
+            }}
           />
         ))}
-        {images.length > 1 && (
-          <>
+      </div>
+
+      {images.length > 1 && (
+        <>
+          <button
+            onClick={goPrevImage}
+            className="absolute top-1/2 left-0 transform -translate-y-1/2 w-8 h-8 bg-black 
+            bg-opacity-50 text-white flex justify-center items-center rounded-full cursor-pointer hover:bg-neutral-500"
+          >
+            {"<"}
+          </button>
+          <button
+            onClick={goNextImage}
+            className="absolute top-1/2 right-0 transform -translate-y-1/2 w-8 h-8 bg-black 
+            bg-opacity-50 text-white flex justify-center items-center rounded-full cursor-pointer hover:bg-neutral-500"
+          >
+            {">"}
+          </button>
+        </>
+      )}
+      <div
+        className="absolute bottom-[-15px] left-1/2 flex gap-1"
+        style={{ translate: "-50%" }}
+      >
+        {images.length > 1 &&
+          images.map((_, index) => (
             <button
-              onClick={goToPrevious}
-              className="absolute top-1/2 left-0 transform -translate-y-1/2 w-8 h-8 bg-black 
-              bg-opacity-50 text-white flex justify-center items-center rounded-full cursor-pointer z-10"
-            >
-              {"<"}
-            </button>
-            <button
-              onClick={goToNext}
-              className="absolute top-1/2 right-0 transform -translate-y-1/2 w-8 h-8 bg-black
-               bg-opacity-50 text-white flex justify-center items-center rounded-full cursor-pointer z-10"
-            >
-              {">"}
-            </button>
-          </>
-        )}
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`w-2 h-2 mx-1 rounded-full cursor-pointer hover:scale-[1.3] ${
+                index === currentIndex ? "bg-white" : "bg-gray-500"
+              }`}
+            ></button>
+          ))}
       </div>
     </div>
   );

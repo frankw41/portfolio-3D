@@ -32,6 +32,11 @@ import w2e_list from "./projects_img/what2eat/w2e_list.png";
 import w2e_login from "./projects_img/what2eat/w2e_login.png";
 import w2e_map from "./projects_img/what2eat/w2e_map.png";
 import w2e_message from "./projects_img/what2eat/w2e_message.png";
+import mm_main from "./projects_img/mm_main.png";
+import qua_add from "./projects_img/quartefacts/qua_add.png";
+import qua_dashboard from "./projects_img/quartefacts/qua_dashboard.png";
+import qua_detail from "./projects_img/quartefacts/qua_detail.png";
+import qua_login from "./projects_img/quartefacts/qua_login.png";
 
 import logo_bg from "./logo-bg.png";
 import istj from "./istj.png";
@@ -69,6 +74,11 @@ export {
   w2e_login,
   w2e_map,
   w2e_message,
+  mm_main,
+  qua_add,
+  qua_dashboard,
+  qua_detail,
+  qua_login,
   logo_bg,
   istj,
   unimelb,
