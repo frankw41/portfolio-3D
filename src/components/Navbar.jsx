@@ -2,8 +2,9 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { styles } from "../styles";
 import { navLinks } from "../constants";
-import { logo_bg, logo_light_bg, menu, close } from "../assets";
+import { logo_bg, logo_light_bg } from "../assets";
 import DarkModeToggle from "react-dark-mode-toggle";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = ({ isDarkMode, toggleDarkMode }) => {
   const [active, setActive] = useState("");
@@ -48,12 +49,12 @@ const Navbar = ({ isDarkMode, toggleDarkMode }) => {
         </ul>
 
         <div className="sm:hidden flex flex-1 justify-end items-center">
-          <img
-            src={toggle ? close : menu}
-            alt="menu"
-            className="w-[28px] h-[28px] object-contain cursor-pointer"
+          <div
+            className="w-[28px] h-[28px] object-contain cursor-pointer dark:text-white text-black"
             onClick={() => setToggle(!toggle)}
-          />
+          >
+            {toggle ? <FaTimes size={25} /> : <FaBars size={25} />}
+          </div>
           <div
             className={`${
               !toggle ? "hidden" : "flex"
@@ -64,9 +65,7 @@ const Navbar = ({ isDarkMode, toggleDarkMode }) => {
                 <li
                   key={link.id}
                   className={`${
-                    active === link.title
-                      ? "text-white"
-                      : "dark:text-secondary text-light_secondary"
+                    active === link.title ? "text-white" : "text-secondary"
                   } font-poppins font-medium cursor-pointer text-[16px]`}
                   onClick={() => {
                     setToggle(!toggle);
