@@ -2,14 +2,16 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { styles } from "../styles";
 import { navLinks } from "../constants";
-import { logo_bg, menu, close } from "../assets";
+import { logo_bg, logo_light_bg, menu, close } from "../assets";
+import DarkModeToggle from "react-dark-mode-toggle";
 
-const Navbar = () => {
+const Navbar = ({ isDarkMode, toggleDarkMode }) => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
+
   return (
     <nav
-      className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 bg-primary`}
+      className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 dark:bg-primary bg-light_primary`}
     >
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
         <Link
@@ -20,8 +22,12 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <img src={logo_bg} alt="logo" className="w-16 h-16 object-contain" />
-          <p className="text-white text-[18px] font-bold cursor-pointer flex">
+          <img
+            src={isDarkMode ? logo_bg : logo_light_bg}
+            alt="logo"
+            className="w-16 h-16 object-contain"
+          />
+          <p className="dark:text-white text-[#4d4d4d] text-[18px] font-bold cursor-pointer flex">
             Frank &nbsp; <span className="sm:block hidden"> | Portfolio</span>
           </p>
         </Link>
@@ -30,8 +36,10 @@ const Navbar = () => {
             <li
               key={link.id}
               className={`${
-                active === link.title ? "text-white" : "text-secondary"
-              } hover:text-white text-[18px] font-medium cursor-pointer`}
+                active === link.title
+                  ? "dark:text-white text-[#d1cdcd]"
+                  : "dark:text-secondary text-[#4d4d4d]"
+              } hover:dark:text-white hover:text-[#4d4d4d] text-[18px] font-medium cursor-pointer`}
               onClick={() => setActive(link.title)}
             >
               <a href={`#${link.id}`}>{link.title}</a>
@@ -56,7 +64,9 @@ const Navbar = () => {
                 <li
                   key={link.id}
                   className={`${
-                    active === link.title ? "text-white" : "text-secondary"
+                    active === link.title
+                      ? "text-white"
+                      : "dark:text-secondary text-light_secondary"
                   } font-poppins font-medium cursor-pointer text-[16px]`}
                   onClick={() => {
                     setToggle(!toggle);
@@ -69,6 +79,13 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
+      </div>
+      <div className="mx-6">
+        <DarkModeToggle
+          onChange={toggleDarkMode}
+          checked={isDarkMode}
+          size={55}
+        />
       </div>
     </nav>
   );

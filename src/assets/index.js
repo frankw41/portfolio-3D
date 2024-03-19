@@ -39,6 +39,7 @@ import qua_detail from "./projects_img/quartefacts/qua_detail.png";
 import qua_login from "./projects_img/quartefacts/qua_login.png";
 
 import logo_bg from "./logo-bg.png";
+import logo_light_bg from "./logo.svg";
 import istj from "./istj.png";
 import unimelb from "./unimelb.png";
 
@@ -80,6 +81,7 @@ export {
   qua_detail,
   qua_login,
   logo_bg,
+  logo_light_bg,
   istj,
   unimelb,
 };

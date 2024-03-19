@@ -16,16 +16,18 @@ const FeedbackCard = ({
     variants={fadeIn("", "sprint", index * 0.5, 0.75)}
     className="bg-black-200 p-10 rounded-3xl xs:w-[320px] w-full"
   >
-    <p className="text-white font-black text-[40px]">&#34;</p>
+    <p className="dark:text-white text-black font-black text-[40px]">&#34;</p>
     <div className="mt-1">
-      <p className="text-white tracking-wider text-[18px]">{testimonial}</p>
+      <p className="dark:text-white text-black tracking-wider text-[18px]">
+        {testimonial}
+      </p>
       <div className="mt-7 flex justify-between items-center gap-1">
         <div className="flex-1 flex flex-col">
-          <p className="text-white font-medium text-[16px]">
+          <p className="dark:text-white text-black font-medium text-[16px]">
             <span className="blue-text-gradient">@</span>
             {name}
           </p>
-          <p className="mt-1 text-secondary text-[12px]">
+          <p className="mt-1 dark:text-secondary text-light_secondary text-[12px]">
             {designation} of {company}
           </p>
         </div>
@@ -43,7 +45,7 @@ const Feedbacks = () => {
   return (
     <div className="mt-12 bg-black-100 rounded-[20px]">
       <div
-        className={`${styles.padding} bg-tertiary rounded-2xl min-h-[300px]`}
+        className={`${styles.padding} dark:bg-tertiary bg-light_tertiary rounded-2xl min-h-[300px]`}
       >
         <motion.div variants={textVariant()}>
           <p className={styles.sectionSubText}>What others say</p>

@@ -61,14 +61,14 @@ const ImageGallery = ({ images, autoplayInterval = 3000 }) => {
           <button
             onClick={goPrevImage}
             className="absolute top-1/2 left-0 transform -translate-y-1/2 w-8 h-8 bg-black 
-            bg-opacity-50 text-white flex justify-center items-center rounded-full cursor-pointer hover:bg-neutral-500"
+            bg-opacity-50 text-white flex justify-center items-center rounded-full cursor-pointer hover:dark:bg-neutral-500 hover:bg-black"
           >
             {"<"}
           </button>
           <button
             onClick={goNextImage}
             className="absolute top-1/2 right-0 transform -translate-y-1/2 w-8 h-8 bg-black 
-            bg-opacity-50 text-white flex justify-center items-center rounded-full cursor-pointer hover:bg-neutral-500"
+            bg-opacity-50 text-white flex justify-center items-center rounded-full cursor-pointer hover:dark:bg-neutral-500 hover:bg-black"
           >
             {">"}
           </button>
@@ -84,7 +84,9 @@ const ImageGallery = ({ images, autoplayInterval = 3000 }) => {
               key={index}
               onClick={() => setCurrentIndex(index)}
               className={`w-2 h-2 mx-1 rounded-full cursor-pointer hover:scale-[1.3] ${
-                index === currentIndex ? "bg-white" : "bg-gray-500"
+                index === currentIndex
+                  ? "dark:bg-white bg-black"
+                  : "bg-gray-500"
               }`}
             ></button>
           ))}
