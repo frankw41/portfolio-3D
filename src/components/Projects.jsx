@@ -14,12 +14,13 @@ const ProjectCard = ({
   tags,
   images,
   source_code_link,
+  video_link,
 }) => {
   return (
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
       <div className="dark:bg-tertiary bg-light_tertiary p-5 rounded-2xl sm:w-[360px] w-full">
         <div className="relative w-full h-[230px]">
-          <ImageGallery images={images} />
+          <ImageGallery images={images} video_link={video_link} />
 
           <div
             className={`${

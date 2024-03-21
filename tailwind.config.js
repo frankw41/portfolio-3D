@@ -25,6 +25,7 @@ export default {
       },
       backgroundImage: {
         "hero-pattern": "url('/src/assets/herobg.png')",
+        "hero-bg-light": "url('/src/assets/herobg_light.png')",
       },
     },
   },

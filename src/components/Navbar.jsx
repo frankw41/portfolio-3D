@@ -28,11 +28,11 @@ const Navbar = ({ isDarkMode, toggleDarkMode }) => {
             alt="logo"
             className="w-16 h-16 object-contain"
           />
-          <p className="dark:text-white text-[#4d4d4d] text-[18px] font-bold cursor-pointer flex">
-            Frank &nbsp; <span className="sm:block hidden"> | Portfolio</span>
+          <p className="dark:text-white text-[#4d4d4d] text-[18px] font-bold cursor-pointer flex flex-shrink-0">
+            Frank &nbsp; <span className="md:block hidden"> Wan</span>
           </p>
         </Link>
-        <ul className="list-none hidden sm:flex flex-row gap-10">
+        <ul className="list-none hidden md:flex flex-row gap-10">
           {navLinks.map((link) => (
             <li
               key={link.id}
@@ -48,7 +48,7 @@ const Navbar = ({ isDarkMode, toggleDarkMode }) => {
           ))}
         </ul>
 
-        <div className="sm:hidden flex flex-1 justify-end items-center">
+        <div className="md:hidden flex flex-1 justify-end items-center">
           <div
             className="w-[28px] h-[28px] object-contain cursor-pointer dark:text-white text-black"
             onClick={() => setToggle(!toggle)}

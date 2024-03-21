@@ -36,9 +36,9 @@ function App() {
   return (
     <BrowserRouter>
       <div className="relative z-0 dark:bg-primary bg-light_primary">
-        <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
+        <div className="dark:bg-hero-pattern bg-hero-bg-light bg-cover bg-no-repeat bg-center">
           <Navbar isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
-          <Hero />
+          <Hero isDarkMode={isDarkMode} />
         </div>
         <About />
         <Education isDarkMode={isDarkMode} />

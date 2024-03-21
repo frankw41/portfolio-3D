@@ -243,6 +243,7 @@ const projects = [
       w2e_message,
     ],
     source_code_link: "https://github.com/frankwan41/COMP90018_Assignment2",
+    video_link: "https://youtu.be/vd8gYSgu7EM",
   },
   {
     name: "Motivational Modelling",
@@ -265,6 +266,7 @@ const projects = [
     ],
     images: [mm_main],
     source_code_link: "https://momo-swen90009.eresearch.unimelb.edu.au/",
+    video_link: "",
   },
   {
     name: "Quartefacts",
@@ -288,6 +290,7 @@ const projects = [
     ],
     images: [qua_login, qua_dashboard, qua_add, qua_detail],
     source_code_link: "",
+    video_link: "",
   },
   {
     name: "White Board",
@@ -309,6 +312,7 @@ const projects = [
     ],
     images: [whiteboard],
     source_code_link: "",
+    video_link: "",
   },
 ];
 

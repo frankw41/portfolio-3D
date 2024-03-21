@@ -3,12 +3,14 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 import CanvasLoader from "../Loader";
 
-const Computers = ({ isMobile }) => {
+const Computers = ({ isMobile, isTablet, isDarkMode }) => {
   // Chane 3D model - https://sketchfab.com/
 
-  const computer = useGLTF("./desktop_pc/scene.gltf");
+  const galaxy = useGLTF("./galaxy/scene.gltf");
+  const office = useGLTF("./60s_office_props/scene.gltf");
   return (
     <mesh>
+      {console.log(isDarkMode)}
       <hemisphereLight intensity={2} groundColor="black" />
       <pointLight intensity={2} />
       <spotLight
@@ -20,39 +22,28 @@ const Computers = ({ isMobile }) => {
         shadow-mapSize={1024}
       />
       <primitive
-        object={computer.scene}
-        scale={isMobile ? 0.7 : 0.75}
-        position={isMobile ? [0, -3.5, -2.2] : [0, -4.25, -1.5]}
-        rotation={[-0.01, -0.2, -0.1]}
+        object={isDarkMode ? galaxy.scene : office.scene}
+        scale={
+          isDarkMode
+            ? isMobile
+              ? 1.5
+              : isTablet
+              ? 2.5
+              : 3.5
+            : isMobile
+            ? 0.5
+            : isTablet
+            ? 0.7
+            : 1.0
+        }
+        position={isDarkMode ? [0, -1.5, 0] : [0, -2, 0]}
+        rotation={isDarkMode ? [-0.2, -0.5, -0.6] : [0, 1.4, 0]}
       />
     </mesh>
   );
 };
 
-const ComputersCanvas = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    // Add a listener for changes to the screen size
-    const mediaQuery = window.matchMedia("(max-width: 500px)");
-
-    // Set the initial value of the 'isMobil' state variable
-    setIsMobile(mediaQuery.matches);
-
-    // Define a callback function to handle changes to the media query
-    const handleMediaQueryChange = (evt) => {
-      setIsMobile(evt.matches);
-    };
-
-    // Add the callback function as a listener for changes to the media query
-    mediaQuery.addEventListener("change", handleMediaQueryChange);
-
-    // Remove the listener when the component is unmounted
-    return () => {
-      mediaQuery.removeEventListener("change", handleMediaQueryChange);
-    };
-  }, []);
-
+const ComputersCanvas = ({ isDarkMode, isMobile, isTablet }) => {
   return (
     <Canvas
       frameloop="demand"
@@ -66,7 +57,11 @@ const ComputersCanvas = () => {
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />
-        <Computers isMobile={isMobile} />
+        <Computers
+          isMobile={isMobile}
+          isTablet={isTablet}
+          isDarkMode={isDarkMode}
+        />
       </Suspense>
       <Preload all />
     </Canvas>

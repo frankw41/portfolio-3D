@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
+import { Tooltip } from "react-tooltip";
 
-const ImageGallery = ({ images, autoplayInterval = 3000 }) => {
+const ImageGallery = ({ images, autoplayInterval = 3000, video_link }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -46,14 +47,24 @@ const ImageGallery = ({ images, autoplayInterval = 3000 }) => {
         {images.map((image, index) => (
           <img
             key={index}
+            data-tooltip-id={video_link === "" ? "" : "project-video"}
+            data-tooltip-content={"Click to watch demo video!"}
             src={image}
             className={`object-contain w-full h-full block flex-shrink-0
-              flex-grow-0 duration-300 ease-in-out`}
+              flex-grow-0 duration-300 ease-in-out ${
+                video_link === "" ? "" : "cursor-pointer"
+              }`}
             style={{
               translate: `${-100 * currentIndex}% `,
             }}
+            onClick={() => {
+              if (video_link !== "") {
+                window.open(video_link, "_blank");
+              }
+            }}
           />
         ))}
+        <Tooltip id="project-video" />
       </div>
 
       {images.length > 1 && (
