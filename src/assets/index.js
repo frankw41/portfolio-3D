@@ -1,8 +1,8 @@
 import logo from "./logo.svg";
-import backend from "./backend.png";
-import creator from "./creator.png";
-import mobile from "./mobile.png";
+import creator from "./content-creator.png";
+import engineer from "./engineering.png";
 import web from "./web.png";
+import innovation from "./innovation.png";
 import github from "./github.png";
 
 import css from "./tech/css.png";
@@ -41,11 +41,13 @@ import logo_light_bg from "./logo.svg";
 import istj from "./istj.png";
 import unimelb from "./unimelb.png";
 
+import cv from "./cv.png";
+
 export {
   logo,
-  backend,
   creator,
-  mobile,
+  engineer,
+  innovation,
   web,
   github,
   css,
@@ -80,4 +82,5 @@ export {
   logo_light_bg,
   istj,
   unimelb,
+  cv,
 };

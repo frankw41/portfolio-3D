@@ -75,10 +75,23 @@ const Hero = ({ isDarkMode }) => {
                     {
                       name: "offset",
                       options: {
-                        offset: isTablet || isMobile ? [0, -8] : [0, 10],
+                        offset: isTablet || isMobile ? [0, -10] : [0, 10],
                       },
                     },
                   ],
+                },
+              }}
+              // Issue(Partial Solve): ToolTip render in front of navbar when scroll down
+              // https://stackoverflow.com/questions/64220054/material-ui-tooltip-is-not-shown-correctly-inside-a-container-with-overflow-scro
+              PopperProps={{
+                disablePortal: true,
+              }}
+              componentsProps={{
+                tooltip: {
+                  sx: {
+                    height: isTablet || isMobile ? "30px" : "45px",
+                    alignContent: "center",
+                  },
                 },
               }}
             >

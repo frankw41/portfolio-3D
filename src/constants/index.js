@@ -1,8 +1,8 @@
 import {
-  mobile,
-  backend,
+  engineer,
   creator,
   web,
+  innovation,
   javascript,
   typescript,
   html,
@@ -38,6 +38,10 @@ export const navLinks = [
     title: "About",
   },
   {
+    id: "education",
+    title: "Education",
+  },
+  {
     id: "work",
     title: "Work",
   },
@@ -57,12 +61,12 @@ const services = [
     icon: web,
   },
   {
-    title: "React Developer",
-    icon: mobile,
+    title: "Software Developer",
+    icon: engineer,
   },
   {
-    title: "Backend Developer",
-    icon: backend,
+    title: "Innovation",
+    icon: innovation,
   },
   {
     title: "Content Creator",
