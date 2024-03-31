@@ -3,7 +3,8 @@ import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { ComputersCanvas } from "./canvas";
 import { istj } from "../assets";
-import { Tooltip } from "react-tooltip";
+import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
+import { styled } from "@mui/material/styles";
 
 const Hero = ({ isDarkMode }) => {
   const [isMobile, setIsMobile] = useState(false);
@@ -39,6 +40,14 @@ const Hero = ({ isDarkMode }) => {
     };
   }, []);
 
+  const CustomWidthTooltip = styled(({ className, ...props }) => (
+    <Tooltip {...props} classes={{ popper: className }} />
+  ))(({ maxWidth }) => ({
+    [`& .${tooltipClasses.tooltip}`]: {
+      maxWidth: maxWidth,
+    },
+  }));
+
   return (
     <section className="relative w-full h-screen mx-auto">
       <div
@@ -51,21 +60,40 @@ const Hero = ({ isDarkMode }) => {
         <div className="z-[1]">
           <h1 className={`${styles.heroHeadText} dark:text-white text-black`}>
             Hi, I&#39;m{" "}
-            <span
-              className="text-[#915eff] cursor-pointer "
-              data-tooltip-id="linkedin"
-              data-tooltip-content={"Check out my Linkedin!"}
-              data-tooltip-place={isTablet || isMobile ? "bottom" : "right"}
-              data-tooltip-offset={isTablet || isMobile ? -5 : 20}
-              onClick={() =>
-                window.open(
-                  "https://www.linkedin.com/in/frank-yicong-wan-89a132268/",
-                  "_blank"
-                )
+            <Tooltip
+              title={
+                <p style={{ fontSize: isTablet || isMobile ? "15px" : "20px" }}>
+                  Check out my Linkedin!
+                </p>
               }
+              arrow
+              open
+              placement={isTablet || isMobile ? "bottom" : "right"}
+              slotProps={{
+                popper: {
+                  modifiers: [
+                    {
+                      name: "offset",
+                      options: {
+                        offset: isTablet || isMobile ? [0, -8] : [0, 10],
+                      },
+                    },
+                  ],
+                },
+              }}
             >
-              Frank
-            </span>
+              <span
+                className="text-[#915eff] cursor-pointer "
+                onClick={() =>
+                  window.open(
+                    "https://www.linkedin.com/in/frank-yicong-wan-89a132268/",
+                    "_blank"
+                  )
+                }
+              >
+                Frank
+              </span>
+            </Tooltip>
           </h1>
           <p
             className={`${styles.heroSubText} lg:mt-2 mt-8 dark:text-white-100 text-black w-4/5`}
@@ -76,32 +104,37 @@ const Hero = ({ isDarkMode }) => {
             <br />
             <span className="font-bold flex gap-2">
               MBTI:
-              <span
-                data-tooltip-id="mbti"
-                data-tooltip-content={"Check out what is my personality?"}
-                data-tooltip-place="bottom-start"
-                className="flex cursor-pointer text-[#915eff] gap-2"
-                onClick={() =>
-                  window.open(
-                    "https://www.16personalities.com/istj-personality",
-                    "_blank"
-                  )
+              <CustomWidthTooltip
+                maxWidth={500}
+                title={
+                  <p
+                    style={{
+                      fontSize: isTablet || isMobile ? "15px" : "20px",
+                    }}
+                  >
+                    Check out what is my personality?
+                  </p>
                 }
+                arrow
+                placement="right-start"
               >
-                ISTJ
-                <img
-                  src={istj}
-                  alt="istj_icon"
-                  className="w-10 h-10 object-contain"
-                />
-              </span>
-              <Tooltip
-                id="linkedin"
-                defaultIsOpen={true}
-                style={{ fontSize: isTablet || isMobile ? "15px" : "20px" }}
-                closeEvents={["click"]}
-              />
-              <Tooltip id="mbti" style={{ fontSize: "20px" }} />
+                <span
+                  className="flex cursor-pointer text-[#915eff] gap-2"
+                  onClick={() =>
+                    window.open(
+                      "https://www.16personalities.com/istj-personality",
+                      "_blank"
+                    )
+                  }
+                >
+                  ISTJ
+                  <img
+                    src={istj}
+                    alt="istj_icon"
+                    className="w-10 h-10 object-contain"
+                  />
+                </span>
+              </CustomWidthTooltip>
             </span>
           </p>
         </div>

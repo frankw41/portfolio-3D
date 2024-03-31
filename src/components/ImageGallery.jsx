@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Tooltip } from "react-tooltip";
+import Tooltip from "@mui/material/Tooltip";
 
 const ImageGallery = ({ images, autoplayInterval = 3000, video_link }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -45,26 +45,32 @@ const ImageGallery = ({ images, autoplayInterval = 3000, video_link }) => {
     >
       <div className="w-full h-full flex overflow-hidden">
         {images.map((image, index) => (
-          <img
+          <Tooltip
             key={index}
-            data-tooltip-id={video_link === "" ? "" : "project-video"}
-            data-tooltip-content={"Click to watch demo video!"}
-            src={image}
-            className={`object-contain w-full h-full block flex-shrink-0
+            title={
+              video_link !== "" && (
+                <p style={{ fontSize: "15px" }}>Click to watch demo video!</p>
+              )
+            }
+            followCursor
+          >
+            <img
+              src={image}
+              className={`object-contain w-full h-full block flex-shrink-0
               flex-grow-0 duration-300 ease-in-out ${
                 video_link === "" ? "" : "cursor-pointer"
               }`}
-            style={{
-              translate: `${-100 * currentIndex}% `,
-            }}
-            onClick={() => {
-              if (video_link !== "") {
-                window.open(video_link, "_blank");
-              }
-            }}
-          />
+              style={{
+                translate: `${-100 * currentIndex}% `,
+              }}
+              onClick={() => {
+                if (video_link !== "") {
+                  window.open(video_link, "_blank");
+                }
+              }}
+            />
+          </Tooltip>
         ))}
-        <Tooltip id="project-video" />
       </div>
 
       {images.length > 1 && (

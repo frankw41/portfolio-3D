@@ -25,7 +25,7 @@ const ProjectCard = ({
           <div
             className={`${
               source_code_link ? "" : "hidden"
-            } absolute inset-0 flex justify-end m-3 card-img_hover `}
+            } absolute inset-0 flex justify-end m-3 `}
           >
             <div
               onClick={() => window.open(source_code_link, "_blank")}
