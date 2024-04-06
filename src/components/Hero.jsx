@@ -5,10 +5,12 @@ import { ComputersCanvas } from "./canvas";
 import { istj } from "../assets";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import { styled } from "@mui/material/styles";
+import { useDarkMode } from "../hoc/DarkModeContext";
 
-const Hero = ({ isDarkMode }) => {
+const Hero = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
+  const { isDarkMode } = useDarkMode();
 
   useEffect(() => {
     // Add a listener for changes to the screen size for mobile
@@ -96,7 +98,7 @@ const Hero = ({ isDarkMode }) => {
               }}
             >
               <span
-                className="text-[#915eff] cursor-pointer "
+                className="text-[#0094e3] cursor-pointer "
                 onClick={() =>
                   window.open(
                     "https://www.linkedin.com/in/frank-yicong-wan-89a132268/",
@@ -132,7 +134,7 @@ const Hero = ({ isDarkMode }) => {
                 placement="right-start"
               >
                 <span
-                  className="flex cursor-pointer text-[#915eff] gap-2"
+                  className="flex cursor-pointer text-[#0094e3] gap-2"
                   onClick={() =>
                     window.open(
                       "https://www.16personalities.com/istj-personality",

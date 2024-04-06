@@ -1,8 +1,11 @@
 import { BallCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { technologies } from "../constants";
+import { useDarkMode } from "../hoc/DarkModeContext";
 
-const Tech = ({ isDarkMode }) => {
+const Tech = () => {
+  const { isDarkMode } = useDarkMode();
+
   return (
     <div className="flex flex-row flex-wrap justify-center gap-10">
       {technologies.map((technology) => (

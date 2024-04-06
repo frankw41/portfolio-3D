@@ -1,6 +1,9 @@
 import { VerticalTimelineElement } from "react-vertical-timeline-component";
+import { useDarkMode } from "../hoc/DarkModeContext";
 
-const TimelineCard = ({ object, isDarkMode }) => {
+const TimelineCard = ({ object }) => {
+  const { isDarkMode } = useDarkMode();
+
   return (
     <VerticalTimelineElement
       contentStyle={{

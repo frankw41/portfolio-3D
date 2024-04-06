@@ -1,7 +1,8 @@
-import React from "react";
 import { Html, useProgress } from "@react-three/drei";
+import { useDarkMode } from "../hoc/DarkModeContext";
 
 const Loader = () => {
+  const { isDarkMode } = useDarkMode();
   const { progress } = useProgress();
 
   return (
@@ -10,7 +11,7 @@ const Loader = () => {
       <p
         style={{
           fontSize: 14,
-          color: "#f1f1f1",
+          color: isDarkMode ? "#f1f1f1" : "black",
           fontWeight: 800,
           marginTop: 40,
         }}

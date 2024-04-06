@@ -6,7 +6,7 @@ import { educations } from "../constants/index.js";
 import SectionWrapper from "../hoc/SectionWrapper.jsx";
 import TimelineCard from "./TimelineCard.jsx";
 
-const Education = ({ isDarkMode }) => {
+const Education = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
@@ -17,11 +17,7 @@ const Education = ({ isDarkMode }) => {
       <div className="mt-20 flex flex-col">
         <VerticalTimeline>
           {educations.map((experience, index) => (
-            <TimelineCard
-              key={index}
-              object={experience}
-              isDarkMode={isDarkMode}
-            />
+            <TimelineCard key={index} object={experience} />
           ))}
         </VerticalTimeline>
       </div>

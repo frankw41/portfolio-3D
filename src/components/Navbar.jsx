@@ -9,12 +9,13 @@ import { IoMdDownload } from "react-icons/io";
 import { GrFormView } from "react-icons/gr";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import { useDarkMode } from "../hoc/DarkModeContext";
 
-const Navbar = ({ isDarkMode, toggleDarkMode }) => {
+const Navbar = () => {
   const [active, setActive] = useState("");
-  const [menuToggle, setmenuToggle] = useState(false);
   const [menuAnchorEl, setMenuAnchorEl] = useState(null);
   const [resumeAnchorEl, setResumeAnchorEl] = useState(null);
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
 
   const handleMenuClick = (event) => {
     setMenuAnchorEl(event.currentTarget);
@@ -58,7 +59,7 @@ const Navbar = ({ isDarkMode, toggleDarkMode }) => {
             <img
               src={isDarkMode ? logo_bg : logo_light_bg}
               alt="logo"
-              className="w-16 h-16 object-contain"
+              className="dark:w-16 dark:h-16 w-12 h-12 object-contain"
             />
             <p className="dark:text-white text-[#4d4d4d] text-[18px] font-bold cursor-pointer flex flex-shrink-0">
               Frank Wan

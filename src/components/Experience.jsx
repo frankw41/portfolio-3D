@@ -8,7 +8,7 @@ import { SectionWrapper } from "../hoc";
 import TimelineCard from "./TimelineCard";
 import { textVariant } from "../utils/motion";
 
-const Experience = ({ isDarkMode }) => {
+const Experience = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
@@ -19,11 +19,7 @@ const Experience = ({ isDarkMode }) => {
       <div className="mt-20 flex flex-col">
         <VerticalTimeline>
           {experiences.map((experience, index) => (
-            <TimelineCard
-              key={index}
-              object={experience}
-              isDarkMode={isDarkMode}
-            />
+            <TimelineCard key={index} object={experience} />
           ))}
         </VerticalTimeline>
       </div>

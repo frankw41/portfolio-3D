@@ -1,7 +1,8 @@
-import { Suspense, useState, useRef } from "react";
+import { Suspense, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Preload, Points, PointMaterial } from "@react-three/drei";
 import * as random from "maath/random/dist/maath-random.esm";
+import { useDarkMode } from "../../hoc/DarkModeContext";
 
 const Stars = (props) => {
   const ref = useRef();
@@ -28,7 +29,8 @@ const Stars = (props) => {
   );
 };
 
-const StarsCanvas = ({ isDarkMode }) => {
+const StarsCanvas = () => {
+  const { isDarkMode } = useDarkMode();
   return (
     <div className="w-full h-auto absolute inset-0 z-[-1]">
       <Canvas camera={{ position: [0, 0, 1] }}>
