@@ -113,7 +113,7 @@ const Navbar = () => {
           </div>
         </div>
         <div className="dark:text-secondary text-[#4d4d4d] text-base mx-5 flex flex-row items-center gap-3 font-bold">
-          <button onClick={handleResumeClick} className="hidden navMid:flex">
+          <button onClick={handleResumeClick} className={`hidden navMid:flex ${resumeAnchorEl && "text-secondary"}`}>
             Resume
           </button>
           <img

@@ -10,6 +10,7 @@ import { useDarkMode } from "../hoc/DarkModeContext";
 const Hero = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
   const { isDarkMode } = useDarkMode();
 
   useEffect(() => {
@@ -41,6 +42,20 @@ const Hero = () => {
       );
     };
   }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+      console.log(window.scrollY, window.innerHeight)
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
 
   const CustomWidthTooltip = styled(({ className, ...props }) => (
     <Tooltip {...props} classes={{ popper: className }} />
@@ -161,7 +176,7 @@ const Hero = () => {
       />
 
       {/* Scroll Down hint */}
-      <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
+      <div className={`absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center ease-in-out duration-300 ${window.innerHeight / 2.5 > scrollY ? 'opacity-100' : 'opacity-0'}`}>
         <a href="#about">
           <div className="w-[35px] h-[64px] rounded-3xl border-4 dark:border-secondary border-light_secondary flex justify-center items-start p-2">
             <motion.div
