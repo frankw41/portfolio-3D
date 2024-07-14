@@ -46,7 +46,6 @@ const Hero = () => {
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
-      console.log(window.scrollY, window.innerHeight)
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -100,12 +99,13 @@ const Hero = () => {
               }}
               // Issue(Partial Solve): ToolTip render in front of navbar when scroll down
               // https://stackoverflow.com/questions/64220054/material-ui-tooltip-is-not-shown-correctly-inside-a-container-with-overflow-scro
-              PopperProps={{
-                disablePortal: true,
-              }}
+              // PopperProps={{
+              //   disablePortal: true,
+              // }}
               componentsProps={{
                 tooltip: {
                   sx: {
+                    display: scrollY > 40 ? "none" : "block",
                     height: isTablet || isMobile ? "30px" : "45px",
                     alignContent: "center",
                   },

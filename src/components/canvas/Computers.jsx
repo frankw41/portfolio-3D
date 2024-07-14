@@ -10,7 +10,6 @@ const Computers = ({ isMobile, isTablet, isDarkMode }) => {
   const office = useGLTF("./60s_office_props/scene.gltf");
   return (
     <mesh>
-      {console.log(isDarkMode)}
       <hemisphereLight intensity={2} groundColor="black" />
       <pointLight intensity={2} />
       <spotLight
