@@ -185,7 +185,6 @@ const Hero = () => {
 				</div>
 			</div>
 			<div className={`h-full  ${screenHeight < 700 && "mt-28"}`}>
-				{console.log(screenHeight)}
 				<ComputersCanvas
 					isDarkMode={isDarkMode}
 					isMobile={isMobile}
