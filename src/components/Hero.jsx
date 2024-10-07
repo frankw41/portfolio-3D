@@ -73,9 +73,9 @@ const Hero = () => {
 
 	const CustomWidthTooltip = styled(({ className, ...props }) => (
 		<Tooltip {...props} classes={{ popper: className }} />
-	))(({ maxWidth }) => ({
+	))(({ maxwidth }) => ({
 		[`& .${tooltipClasses.tooltip}`]: {
-			maxWidth: maxWidth,
+			maxwidth: maxwidth,
 		},
 	}));
 
@@ -150,7 +150,7 @@ const Hero = () => {
 						<span className="font-bold flex gap-2">
 							MBTI:
 							<CustomWidthTooltip
-								maxWidth={500}
+								maxwidth={500}
 								title={
 									<p
 										style={{
